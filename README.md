@@ -13,7 +13,7 @@
 - 出力するファイル名は'元のファイル名+_cut.pdf'
 
 ## Usage
-- `/path/to/facing_page_cut [-v] <pdf filename w/ .pdf>`
+- `/path/to/facing_page_cut.py [-v] <pdf filename w/ .pdf>`
 
 ## Installation
 - PyPDF2をインストール
