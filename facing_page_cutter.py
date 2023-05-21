@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2022, Kazuhiro FUJIHARA
+# Copyright (c) 2023, Kazuhiro FUJIHARA
 
 import PyPDF2
 from optparse import OptionParser
@@ -14,12 +14,16 @@ vcut = False
 usage = "usage: /path/to/%prog [options] <pdf filename w/ .pdf>"
 parser = OptionParser(usage = usage)
 parser.add_option("-v", "--vertical", action="store_true", dest="vertical", help="縦書き(右開き)")
+parser.add_option("-r", "--rotate", action="store", dest="rotation", help="回転(時計回りに90度刻み)")
 
 (options, args) = parser.parse_args()
 
 if len(args) != 1:
     parser.print_help()
     sys.exit()
+
+if options.rotation is not None:
+    ROTATE_ANGLE = int(options.rotation)
 
 output_filename = re.match(r'(.*)\.pdf', args[0]).groups()[0] + '_cut.pdf'
 
